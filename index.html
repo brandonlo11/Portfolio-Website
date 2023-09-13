@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang = "en">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+</style>
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandon Lo Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5b0f6b2b27.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/namelogo1.png" class="logo">
+            <ul id = "sidemenu">
+                <li><a href='#header'>Home</a></li>
+                <li><a href='#About'>About</a></li>
+                <li><a href='#services'>Services</a></li>
+                <li><a href='#portfolio'>Portfolio</a></li>
+                <li><a href='#contact'>Contact</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>UCLA Computer Engineering</p>
+            <h1>Hi, I'm <span>Brandon</span><br>Lo from Danville, CA</h1>
+
+        </div>
+    </div>
+</div>
+<!-- ---------------about--------------- -->
+<div id="About">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/IMG_6532.JPG">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>I am a Junior student at UCLA majoring in Computer Engineering. I am skilled in Python, C++, C, Java, and more. 
+                    I also have experience with web development languages such as HTML and React, as well as backend development 
+                    such as MongoDB and ExpressJS. Some of my interests include research and projects involving software and 
+                    hardware. My objective is to gain hands-on experience in software development, electrical engineering, and 
+                    business management.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('clubs')">Clubs</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                    <p class="tab-links" onclick="opentab('awards')">Awards</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Programming Languages</span><br>Java, C++, C, C#, Python</li>
+                        <li><span>Full Stack Development</span><br>HTML, CSS, JS</li>
+                        <li><span>Hardware</span><br>Arduino, Verilog, Rasberry Pi, Circuit Design</li>
+                        <li><span>Business</span><br>Graphic Design, Digital Media, Marketing, Business Development</li>
+                        <li><span>Interpersonal</span><br>Communication, Teamwork, Organization, Leadership, Awareness, Adaptability, Building Relationships</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>July 2023 - Present</span><br>Software Engineering Intern at Stellant Systems</li>
+                            <p>• Developed software solutions using C# and Visual Basic to reprogram the continuity isolation station, used in effectively
+                            identifying and resolving current leakage issues 23% faster in all traveling wave tubes manufactured in the U.S.<br>
+                            • Automated air gauge system using PHP/MSSQL, facilitating data integration of tube diameters into a centralized DB</p>
+                        <li><span>April 2023 - Present</span><br>Sensing and Robotics for Infrastructure Lab (UCLA)</li>
+                            <p>• Designed and implemented a custom DVL factor by architecting a robust class structure derived from existing
+                            preintegration classes within GTSAM, enhancing the accuracy of sensor fusion algorithms<br>
+                            • Created unit tests using C++ to validate the factor's functionality and ensure reliable performance in real-world scenario</p>
+                        <li><span>September 2022 - June 2023</span><br>Qubit Laboratory (UCLA)</li>
+                            <p>• Led a team in constructing Biocoils and leveraged Arduino to precisely measure magnetic fields in multiple dimensions<br>
+                            • Developed Python code to intelligently regulate current flow in the biocoils, effectively negating magnetic forces and
+                            enabling advanced experimental setups</p>
+                        <li><span>March 2022 - September 2022</span><br>Technology and Business Management Intern at SmartBreather</li>
+                            <p>• Modified the design of the HEPA air filter electronic system and tubing to improve comfort, aesthetic, and functionality<br>
+                            • Conducted market analysis to identify potential investors, target audience, and market opportunities</p>
+                        <li><span>June 2020 - July 2020</span><br>Software Engineering Intern at FitDrive</li>
+                            <p>• Implemented UI/UX design and backend development using HTML and Swift, resulting in seamless integration of
+                            frontend and backend functionalities and improved user engagement<br>
+                            • Administered user interviews to produce business plan presented the product to 3 venture capitalists and 2 professors</p>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="clubs">
+                    <ul>
+                        <li><span>September 2022 - Present</span><br>Rocket Project at UCLA</li>
+                            <p>Project Ares Software and Prometheus Avionics Lead<br><br>
+                                • Utilized EagleCad to design and optimize rocket components and PCB boards, integrating live flight data (altitude,
+                                orientation, positioning) for real-time monitoring and analysis<br>
+                                • Built and maintained code that powers ground systems microcontrollers, DAQ GUI, and avionics GUI (C, C++, Python)</p>
+                        <li><span>September 2021 – Present</span><br>Engineering Society at UCLA (ESUC)</li>
+                            <p>Events and Community Chair <br><br>
+                                • Planned annual Meet the Faculty and Engineering Week (various events and competitions), attended by 300+ students<br>
+                                • Managed finances and constituted sponsorships whilst attending monthly meetings with the Industry Liaison Committee</p>
+                        <li><span>September 2021 – June 2022</span><br>Engineers Without Borders, Nicaragua</li>
+                            <p>Construction and Relations Liaison <br><br>
+                                • Developed designs for schoolhouse in underprivileged Nicaraguan community and classified financials and parts list<br>
+                                • Produced promotional video and marketing materials resulting in fundraising of $18,000+ for materials and travel<br>
+                                • Implemented technical aspects into cultural media to educate students about Nicaraguan heritage</p>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>September 2021 - June 2025</span><br>University of California, Los Angeles</li>
+                            <p>Bachelor of Science in Computer Engineering<br>GPA: 3.78</p>
+                        <li><span>August 2017 - May 2021</span><br>San Ramon Valley High School</li>
+                            <p>GPA: 4.67</p>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="awards">
+                    <ul>
+                        <li><span>2022</span><br>UCLA Henry Samueli School of Engineering and Applied Science Dean’s Honors List Win Spring and Winter<br>
+                        HKN Engineering Honor Society (2022)</li>
+                        <li><span>2021</span><br>National Honor Society<br>California Scholarship Federation</li>
+                        <li><span>2020</span><br>AP Scholar with Distinction<br>College Board National Rural and Small Town Recognition Program Winner</li>
+                        <li><span>2019</span><br>Eagle Scout</li>
+                        <li><span>2017</span><br>San Ramon Valley High School Scholar Athlete Award</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ---------------services---------------- -->
+
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web Design</h2>
+                <p>Placeholder</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-crop"></i>
+                <h2>UI/UX</h2>
+                <p>Placeholder</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-brands fa-app-store-ios"></i>
+                <h2>App Design</h2>
+                <p>Placeholder</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ---------------portfolio---------------- -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/chatclone.jpg">
+                <div class="layer">
+                    <h3>ChatGPT AI Clone</h3>
+                    <p>I created an AI chatbot using LlamaIndex and GPTIndex, integrating custom knowledge bases to provide personalized interactions. 
+                        This chatbot utilizes GPT-3's language model in Python to deliver human-like responses.</p>
+                    <a href="https://github.com/brandonlo11/Custom-ChatGPT-Clone"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/BSwipe.png">
+                <div class="layer">
+                    <h3>BSwipe Web Application</h3>
+                    <p>BSwipe serves as an innovative platform designed to facilitate the buying and selling of dining hall meal swipes at UCLA. 
+                        Our robust system allows users to create and login as their unique user so that they can browse and create swipe request posts. 
+                        Additionally, users can keep track of their transaction history through their personalized user profile.
+                        We leveraged the MERN technical stack to develop and deploy a fully functional website, featuring dynamic data processing,
+                        efficient client-to-backend data uploading, and server-side data search capabilities (MongoDB, Express.js, React, Node.js)</p>
+                    <a href="https://github.com/vikrampuliyadi/swipes_app"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/ArduinoCar.png">
+                <div class="layer">
+                    <h3>Line Following Car</h3>
+                    <p>I designed and constructed an Arduino-based TI-RSLK robotic car for line-following tasks. I developed an Arduino program, using C and C++, that 
+                        utilizes a PID controller, sensor data, wheel encoders, and other techniques to enable the robotic car to accurately follow a black line on a track and 
+                        successfully complete the course within a 15-second timeframe, demonstrating precise navigation even along curved sections of the track.</p>
+                    <a href="https://github.com/brandonlo11/Line-Following-Car/tree/main"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="https://github.com/brandonlo11" class="btn">See more</a>
+    </div>
+</div>
+
+<!-- ---------------contact---------------- -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class = "sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i> brandonlo2003@yahoo.com</p>
+                <p><i class="fa-solid fa-phone"></i> (925)-549-2182</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/brandon_lo1/?hl=en"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/brandon-lo11/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://calendly.com/brandonlo/interview?month=2023-09"><i class="fa-solid fa-video"></i></a>
+                </div>
+                <a href="images/Brandon Lo Resume.pdf" download class="btn btn2">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name = "Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Developed by Brandon Lo</p>
+    </div>
+</div>
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
+<script>
+
+    var sidemeu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemeu.style.right = "0";
+    }
+    function closemenu(){
+        sidemeu.style.right = "-200px";
+    }
+
+
+</script>
+
+</body>
+</html>
