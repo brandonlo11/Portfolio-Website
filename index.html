@@ -19,8 +19,8 @@
             <ul id = "sidemenu">
                 <li><a href='#header'>Home</a></li>
                 <li><a href='#About'>About</a></li>
-                <li><a href='#services'>Services</a></li>
                 <li><a href='#portfolio'>Portfolio</a></li>
+                <li><a href='#interests'>Interests</a></li>
                 <li><a href='#contact'>Contact</a></li>
                 <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
             </ul>
@@ -127,34 +127,6 @@
     </div>
 </div>
 
-<!-- ---------------services---------------- -->
-
-<div id="services">
-    <div class="container">
-        <h1 class="sub-title">My Services</h1>
-        <div class="services-list">
-            <div>
-                <i class="fa-solid fa-code"></i>
-                <h2>Web Design</h2>
-                <p>Placeholder</p>
-                <a href="#">Learn more</a>
-            </div>
-            <div>
-                <i class="fa-solid fa-crop"></i>
-                <h2>UI/UX</h2>
-                <p>Placeholder</p>
-                <a href="#">Learn more</a>
-            </div>
-            <div>
-                <i class="fa-brands fa-app-store-ios"></i>
-                <h2>App Design</h2>
-                <p>Placeholder</p>
-                <a href="#">Learn more</a>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- ---------------portfolio---------------- -->
 <div id="portfolio">
     <div class="container">
@@ -196,6 +168,39 @@
     </div>
 </div>
 
+<!-- ---------------interests---------------- -->
+
+<div id="interests">
+    <div class="container">
+        <h1 class="sub-title">My Interests</h1>
+        <div class="interests-list">
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Application/Web Dev</h2>
+                <p>I have a strong passion for web/application development, where I enjoy creating user-friendly digital experiences 
+                    using languages like HTML, CSS, and JavaScript. My interests span front-end and back-end development, and I stay up-to-date 
+                    with evolving web technologies</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-bolt"></i>
+                <h2>Hardware</h2>
+                <p> I enjoy the tangible aspects of technology, whether it's building custom PCs or 
+                    experimenting with microcontrollers like Arduino. I enjoy creating software which commuicates with machinery, as well as
+                    building the machinery itself</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-rocket"></i>
+                <h2>Aerospace</h2>
+                <p> I have always had a deep fascination with the final frontier and the aviation and space industries. I appreciate 
+                    the critical role software plays in ensuring safety and efficiency in aerospace systems, satellites, and space missions. </p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ---------------contact---------------- -->
 <div id="contact">
     <div class="container">
@@ -212,12 +217,13 @@
                 <a href="images/Brandon Lo Resume.pdf" download class="btn btn2">Download Resume</a>
             </div>
             <div class="contact-right">
-                <form>
+                <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
                     <textarea name = "Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -256,6 +262,25 @@
 
 
 </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyde9TQQnud37mCN9xlo7FO3lSry_g1RlbElauZBgH1lww4BkU1yo-XMKVaPieOxftFuQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML="Message sent successfully"
+            setTimeout(function(){
+                msg.ionnerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 
 </body>
 </html>
