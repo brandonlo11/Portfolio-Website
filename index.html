@@ -2,6 +2,29 @@
 <html lang = "en">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+    
+    /* Add styles for tab content */
+    .tab-page {
+        display: none;
+    }
+    
+    .tab-page.active {
+        display: block;
+    }
+    
+    /* Ensure header is visible on all pages */
+    #permanent-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #080808;
+        z-index: 1000;
+    }
+    
+    /* Add padding to account for fixed header */
+    .tab-page {
+        padding-top: 100px;
+    }
 </style>
 <head>
     <meta charset = "UTF-8">
@@ -12,29 +35,35 @@
     <script src="https://kit.fontawesome.com/5b0f6b2b27.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="header">
+<div id="permanent-header">
     <div class="container">
         <nav>
             <img src="images/namelogo1.png" class="logo">
             <ul id = "sidemenu">
-                <li><a href='#header'>Home</a></li>
-                <li><a href='#About'>About</a></li>
-                <li><a href='#portfolio'>Portfolio</a></li>
-                <li><a href='#interests'>Interests</a></li>
-                <li><a href='#contact'>Contact</a></li>
+                <li><a href='#' onclick="openPage('home')">Home</a></li>
+                <li><a href='#' onclick="openPage('about')">About</a></li>
+                <li><a href='#' onclick="openPage('portfolio')">Portfolio</a></li>
+                <li><a href='#' onclick="openPage('interests')">Interests</a></li>
+                <li><a href='#' onclick="openPage('contact')">Contact</a></li>
                 <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
             </ul>
             <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
+    </div>
+</div>
+
+<!-- Home Page -->
+<div id="home" class="tab-page active">
+    <div class="container">
         <div class="header-text">
             <p>UCLA Computer Science and Engineering</p>
             <h1><span>Brandon Lo</span><br>Danville, CA</h1>
-
         </div>
     </div>
 </div>
-<!-- ---------------about--------------- -->
-<div id="About">
+
+<!-- About Page -->
+<div id="about" class="tab-page">
     <div class="container">
         <div class="row">
             <div class="about-col-1">
@@ -129,7 +158,7 @@
                 </div>
                 <div class="tab-contents" id="awards">
                     <ul>
-                        <li><span>2022</span><br>UCLA Henry Samueli School of Engineering and Applied Science Dean’s Honors List Winter and Spring<br>
+                        <li><span>2022</span><br>UCLA Henry Samueli School of Engineering and Applied Science Dean's Honors List Winter and Spring<br>
                         HKN Engineering Honor Society</li>
                         <li><span>2021</span><br>National Honor Society<br>California Scholarship Federation</li>
                         <li><span>2020</span><br>AP Scholar with Distinction<br>College Board National Rural and Small Town Recognition Program Winner</li>
@@ -142,8 +171,8 @@
     </div>
 </div>
 
-<!-- ---------------portfolio---------------- -->
-<div id="portfolio">
+<!-- Portfolio Page -->
+<div id="portfolio" class="tab-page">
     <div class="container">
         <h1 class="sub-title">My Work</h1>
         <div class="work-list">
@@ -183,9 +212,8 @@
     </div>
 </div>
 
-<!-- ---------------interests---------------- -->
-
-<div id="interests">
+<!-- Interests Page -->
+<div id="interests" class="tab-page">
     <div class="container">
         <h1 class="sub-title">My Interests</h1>
         <div class="interests-list">
@@ -195,7 +223,7 @@
                 <p> AI and ML have the potential to transform data into impactful solutions. 
                     My experience as an ML Researcher at ScAI Lab and as an intern at AWS has equipped me with skills 
                     in optimizing large-scale data models and enhancing system efficiency. With expertise in Python, 
-                    Golang, and C++, I’m eager to apply my knowledge to drive innovation in AI-driven technologies.</p>
+                    Golang, and C++, I'm eager to apply my knowledge to drive innovation in AI-driven technologies.</p>
                 <a href="#">Learn more</a>
             </div>
             <div>
@@ -218,8 +246,8 @@
     </div>
 </div>
 
-<!-- ---------------contact---------------- -->
-<div id="contact">
+<!-- Contact Page -->
+<div id="contact" class="tab-page">
     <div class="container">
         <div class="row">
             <div class="contact-left">
@@ -244,13 +272,33 @@
             </div>
         </div>
     </div>
-    <div class="copyright">
-        <p>Developed by Brandon Lo</p>
-    </div>
+</div>
+
+<!-- Footer -->
+<div class="copyright">
+    <p>Developed by Brandon Lo</p>
 </div>
 
 <script>
+    // Tab switching functionality
+    function openPage(pageName) {
+        // Hide all tab pages
+        var tabPages = document.getElementsByClassName("tab-page");
+        for (var i = 0; i < tabPages.length; i++) {
+            tabPages[i].classList.remove("active");
+        }
+        
+        // Show the selected page
+        document.getElementById(pageName).classList.add("active");
+        
+        // Reset scroll position
+        window.scrollTo(0, 0);
+        
+        // Close mobile menu if open
+        closemenu();
+    }
 
+    // Existing tab functionality for About section
     var tablinks = document.getElementsByClassName("tab-links");
     var tabcontents = document.getElementsByClassName("tab-contents");
     function opentab(tabname){
@@ -264,10 +312,6 @@
         document.getElementById(tabname).classList.add("active-tab");
     }
 
-</script>
-
-<script>
-
     var sidemeu = document.getElementById("sidemenu");
 
     function openmenu(){
@@ -277,10 +321,7 @@
         sidemeu.style.right = "-200px";
     }
 
-
-</script>
-
-<script>
+    // Form submission script
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyde9TQQnud37mCN9xlo7FO3lSry_g1RlbElauZBgH1lww4BkU1yo-XMKVaPieOxftFuQ/exec'
     const form = document.forms['submit-to-google-sheet']
     const msg = document.getElementById("msg")
@@ -291,13 +332,18 @@
         .then(response => {
             msg.innerHTML="Message sent successfully"
             setTimeout(function(){
-                msg.ionnerHTML = ""
+                msg.innerHTML = ""
             },5000)
             form.reset()
         })
         .catch(error => console.error('Error!', error.message))
     })
-  </script>
+
+    // Show home page by default when the page loads
+    window.onload = function() {
+        openPage('home');
+    }
+</script>
 
 </body>
 </html>
