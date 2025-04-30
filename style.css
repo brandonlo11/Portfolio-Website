@@ -149,12 +149,18 @@ nav ul li a:hover::after{
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    height: 500px; /* Fixed height for all cards */
+    display: flex;
+    flex-direction: column;
 }
 .work img{
     width: 100%;
     border-radius: 10px;
     display: block;
     transition: transform 0.5s;
+    flex: 1 0 auto;
+    object-fit: cover;
+    min-height: 0;
 }
 .layer{
     width: 100%;
